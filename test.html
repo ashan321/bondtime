@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bondtime</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" href="src/transparent 2.png" type="image/x-icon">
+	<link rel="icon" href="src/transparent 2.png" type="image/x-icon">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+
+
+
+</head>
+
+<body class="bg-[#F9F9F9]">
+
+
+	<header class="w-full">
+
+		<nav class=" fixed w-full  top-0 start-0   h-24  flex items-center justify-around  z-[9999]">
+			<div class=" flex flex-wrap items-center justify-between mx-auto p-5 w-full">
+				<a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+					<!-- <img src="" class="h-8" > -->
+					<span class="self-center text-2xl font-semibold whitespace-nowrap ">BondTime</span>
+				</a>
+				<div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+					<button type="button" onclick="scrollToElement('contact');"
+						class="text-white bg-black hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-md px-6 py-2 text-center hidden lg:block ">Contact</button>
+					<button onclick="openNav();" type="button"
+						class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+						aria-controls="navbar-sticky" aria-expanded="false">
+						<span class="sr-only">Open main menu</span>
+						<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+							viewBox="0 0 17 14">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M1 1h15M1 7h15M1 13h15" />
+						</svg>
+					</button>
+				</div>
+				<div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+					<ul
+						class="flex flex-col p-4 md:p-0 mt-4 font-medium border transition ease-in duration-300 lg:backdrop-blur-0 lg:shadow-none backdrop-blur-xl shadow-lg pt-20 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0    ">
+						<li>
+							<button onclick="scrollToElement('home');"
+								class="block py-2 px-3 text-black navText rounded md:bg-transparent  md:p-0 text-xl sfmedium"
+								aria-current="page">Home</button>
+						</li>
+						<li>
+							<button onclick="scrollToElement('aboutus');"
+								class="block py-2 px-3 text-gray-900 rounded navText transition  md:p-0 text-xl  sfmedium ">About
+								Us</button>
+						</li>
+
+						<li>
+							<button onclick="scrollToElement('team');"
+								class="block py-2 px-3 text-gray-900 rounded navText hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 text-xl sfmedium  ">Team</button>
+						</li>
+
+						<li class="lg:hidden flex justify-center">
+							<button onclick="closeNav();"
+								class="block py-2 px-3 text-black  rounded md:bg-transparent  md:p-0 text-xl sfmedium text-center"
+								aria-current="page"><img src="src/close-icon-png-2.jpg" class="w-3 h-3 " alt=""
+									srcset=""></button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+
+		
+
+		const countryData = [
+			{ code: "LK", name: "Sri Lanka", dialCode: "+94", flag: "src/srilanka-512.webp" },
+			{ code: "US", name: "United States", dialCode: "+1", flag: "https://flagcdn.com/us.svg" },
+			{ code: "IN", name: "India", dialCode: "+91", flag: "https://flagcdn.com/in.svg" },
+			// Add more countries here
+		];
+
+		// DOM Elements
+		const countrySelect = document.getElementById("country-select");
+		const countryFlag = document.getElementById("country-flag");
+		const phoneInput = document.getElementById("phone-input");
+
+		// Populate the select dropdown
+		countryData.forEach((country) => {
+			const option = document.createElement("option");
+			option.value = country.code;
+			option.textContent = country.name;
+			countrySelect.appendChild(option);
+		});
+
+		// Update flag and placeholder on change
+		countrySelect.addEventListener("change", (event) => {
+			const selectedCountry = countryData.find(country => country.code === event.target.value);
+			if (selectedCountry) {
+				countryFlag.src = selectedCountry.flag;
+				phoneInput.placeholder = `${selectedCountry.dialCode} (XXX) XXX-XXXX`;
+			}
+		});
+
+		// Set default country
+		countrySelect.value = "LK";
+		countryFlag.src = countryData.find(country => country.code === "LK").flag;
+		phoneInput.placeholder = "+94 (77) 000-000";
+
+
+		function closeNav() {
+			document.getElementById("navbar-sticky").classList.add("hidden");
+
+		}
+
+		function openNav() {
+			document.getElementById("navbar-sticky").classList.remove("hidden");
+
+		}
+
+		function scrollToElement(targetId) {
+
+			if (targetId !== 'home') {
+				closeNav();
+
+				window.location = "#" + targetId;
+
+			} else {
+				window.location = "#";
+			}
+		}
+
+
+		document.getElementById("submitButton").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Get form data
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    const email = document.getElementById("email").value;
+    const job = document.getElementById("job").value;
+    const contact = document.getElementById("phone-input").value;
+
+    // Get selected parent type
+    const parentType = document.querySelector('input[name="parentType"]:checked')?.value || "";
+    console.log(parentType);
+	console.log(fname);
+	console.log(lname);
+	console.log(email);
+	console.log(job);
+	console.log(contact);
+
+    // Perform validation
+    if (!fname || !lname || !email || !contact || !parentType ||!job) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    // Create the request payload
+    const postData = new FormData();
+    postData.append("fname", fname);
+    postData.append("lname", lname);
+    postData.append("email", email);
+    postData.append("job", job);
+    postData.append("contact", contact);
+    postData.append("parentType", parentType);
+    
+    // Send AJAX request
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "sendmail.php", true);
+    xhr.onload = function () {
+        alert(this.responseText);
+        console.log(this.responseText);
+    };
+    xhr.send(postData);
+});
+
+
+function addBorder(selectedElement) {
+    // Remove gradient-border class from both options
+    document.getElementById("option1").classList.remove("gradient-border");
+    document.getElementById("option2").classList.remove("gradient-border");
+
+    // Add gradient-border class to the clicked option
+    selectedElement.classList.add("gradient-border");
+}
+
+
+	</script>
+</body>

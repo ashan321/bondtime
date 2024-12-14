@@ -1,0 +1,139 @@
+.gradient-bg {
+    background: linear-gradient(
+        to bottom, 
+        #E5EBF9 0%, 
+        rgba(239, 223, 226, 0.79) 62%, 
+        rgba(239, 223, 226, 0.38) 100%
+    );
+}
+
+.gradient-bg2 {
+    background: linear-gradient(
+        to right, 
+        #F2E7E3 0%, 
+        #F8F8FC 22%, 
+        #F5F6FB 100%
+    );
+}
+
+.gradient-aboutus {
+    background: linear-gradient(
+        to right, 
+        #C78EE0 0%, 
+        #F1AD87 46%, 
+        #EB89BA 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: teal;
+}
+
+.navText:hover{
+
+background: linear-gradient(
+        to right, 
+        #C78EE0 0%, 
+        #F1AD87 46%, 
+        #EB89BA 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: transparent;
+    transition: 300ms ease-in-out;
+    
+
+}
+
+
+
+@font-face {
+    font-family: 'sf';
+    src: url('fonts/SF-Pro-Display-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'sf-bold';
+    src: url('fonts/SF-Pro-Display-Semibold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'sf-medium';
+    src: url('fonts/SF-Pro-Display-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'sf-thin';
+    src: url('fonts/SF-Pro-Display-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'sf-light';
+    src: url('fonts/SF-Pro-Display-Light.otf') format('opentype');
+}
+
+
+/* Apply the font globally */
+* {
+    font-family: 'sf', sans-serif;
+}
+
+
+.sfsemibold {
+    font-family: 'sf-bold', sans-serif;
+}
+
+.sfmedium {
+    font-family: 'sf-medium', sans-serif;
+}
+
+.sfthin {
+    font-family: 'sf-light', sans-serif;
+}
+
+.image1 {
+    width: 100%;
+    height: auto;
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+}
+
+@media (max-width: 768px) { /* Adjust the max-width value as needed */
+    .image1 {
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+    }
+}
+
+
+.aboutbg{
+	background-image: url("src/transparent 1.png");
+	background-position: center;
+	background-repeat: no-repeat;
+    width: 50%;
+	
+	
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.gradient-border {
+    position: relative;
+    border-radius: 8px; 
+    background: linear-gradient(
+        to right,
+        #C78EE0 0%,
+        #F1AD87 46%,
+        #EB89BA 100%
+    );
+}
+
+.gradient-border > .inner-content {
+    background: white; /* Background color of the content */
+    border-radius: inherit; /* Match the outer border radius */
+    position: relative;
+}
+
+
+
+
